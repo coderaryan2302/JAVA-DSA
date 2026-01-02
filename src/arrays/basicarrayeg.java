@@ -1,5 +1,5 @@
 package arrays;
-class Araysexample{
+class Arraysexample{
     void demoArryas(){
         int ages[]=new int[3]; // new int[] aise hee size declare krte hai (big bracket ke andar size likhna hai)
                                // int ages[] aise array ka name or array ko create krte hai uske name ke sath
