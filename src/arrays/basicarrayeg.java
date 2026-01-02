@@ -23,7 +23,7 @@ class Arraysexample{
     }
     public class basicarrayeg {
     public static void main(String[] args) {
-        Araysexample obj=new Araysexample();
+        Arraysexample obj=new Arraysexample();
         obj.demoArryas();
     }
 }
