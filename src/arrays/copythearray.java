@@ -35,7 +35,7 @@ class copy1starrayinto2ndarray {
 //  trying to copy arr to arr2
          //   int[] arr2 = arr; // shallow copy hua jisme purana array 1 ko copy kiya gya hai .. ye bhi rasta hai copy krne k
          //   int[] arr2 = arr.clone();// arr.clone() ye ek inbuilt methods h jo deep copy kiya hai
-         //   int[] arr2 = Arrays.copyOf(arr, arr.length); //Arrays.copyOf(arr,arr.length) ye bhi inbuilt methods h array import java file mai jo copy krta hai .. isme 1st parameter hai jo array se copy krna hai wo dey do or .. 2nd parameter hai arr.length
+         //   int[] arr2 = Arrays.copyOf(arr, arr.length); // deep copy kiya gya hai .... Arrays.copyOf(arr,arr.length) ye bhi inbuilt methods h array import java file mai jo copy krta hai .. isme 1st parameter hai jo array se copy krna hai wo dey do or .. 2nd parameter hai arr.length
             int[] arr2 =Arrays.copyOf(arr, 2); //isme 2 tk hee copy krega
             System.out.println("copied array2");
             copy1starrayinto2ndarray.printarray(arr2);
