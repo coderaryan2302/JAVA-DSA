@@ -1,5 +1,5 @@
 package arrays;
-class Arraysexample{
+class Arraysexample{ //another class bna ke kr skte ho ... main class ye nhi hai
      void demoArryas(){
         int ages[]=new int[3]; // new int[] aise hee size declare krte hai (big bracket ke andar size likhna hai)
                                // int ages[] aise array ka name or array ko create krte hai uske name ke sath
@@ -21,9 +21,10 @@ class Arraysexample{
         }
     }
     }
-    public class basicarrayeg {
+    public class basicarrayeg { // main class
     public static void main(String[] args) {
-        Arraysexample obj=new Arraysexample();
-        obj.demoArryas();
+//        demoArrays(); // ye bhi rasta hai call krne ka function name laga ke ... pr ye bina another class create kr ke ho ga ... function main class ke andar rahega or call psvm ke andar function name lga ke or parasthenis....
+        Arraysexample obj=new Arraysexample(); // obj create kr ke tb krna hai jab another class banayenge
+        obj.demoArryas(); // or obj create krne ke bdd , object ki help se call krenge obj.functionname
     }
 }

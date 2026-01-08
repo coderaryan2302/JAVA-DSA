@@ -26,3 +26,7 @@ public class checkarrayissorted {
         arrayissorted(arr);
     }
 }
+
+
+// 4no line mai void ke jagah boolean bhi laga skte hai.. or uska return statement 12no pe laga skte hai sout ke jagah pe hata ke
+// or 26no line pe function call jo hua hai wo sout ke andar ho jayega ...

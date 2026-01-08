@@ -14,7 +14,7 @@ public class noofelementsisgreaterthanx {
 
     public static void main(String[] args) {
         Scanner sc =new Scanner (System.in);
-        System.out.println("enter size of an element");
+        System.out.println("enter size of array");
         int size =sc.nextInt();
 
         int arr[]=new int[size];
