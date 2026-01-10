@@ -1,8 +1,9 @@
 package arrays;
 import java.util.Scanner;
-public class maximumvalueofelements {
-   static void demomaximum(int arr[]) {
+public class maxandminvalueofarraywithoutarraysorting {
 
+
+   static void maximum(int arr[]) {
        int max = arr[0];
        for (int i = 1; i < arr.length; i++) {
             if (arr[i] > max) {
@@ -11,6 +12,16 @@ public class maximumvalueofelements {
        }
         System.out.println("max is " + max );
    }
+
+    static void minimum(int arr[]) {
+       int min = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        System.out.println("min is " + min);
+    }
 
    public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
@@ -24,7 +35,10 @@ public class maximumvalueofelements {
         for (int i=0; i<arr.length ; i++) {
             arr[i] = sc.nextInt();
         }
-        demomaximum(arr);
+       System.out.println("maximum elements ");
+        maximum(arr);
+       System.out.println("minimum elements");
+        minimum(arr);
     }
 }
 

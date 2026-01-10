@@ -1,7 +1,7 @@
 package arrays;
 import java.util.Arrays; // 6no line ke liye import kiya gaya hai..
 import java.util.Scanner;
-public class smallestandlargestelementinarray {
+public class smallestandlargestelementbyarraysorting {
     static void smallestandlargest(int arr[]) {
         Arrays.sort(arr); // inbuilt function hai jisey array sort ho jata hai..
         System.out.println("smallest element =" + arr[0] + " largest element =" + arr[arr.length - 1]);

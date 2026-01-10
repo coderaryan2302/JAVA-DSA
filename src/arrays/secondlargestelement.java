@@ -42,7 +42,7 @@ public class secondlargestelement {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = sc.nextInt();
         }
-        System.out.println(secondlargest(arr));
+        System.out.println("second largest element " + secondlargest(arr));
     }
 }
 

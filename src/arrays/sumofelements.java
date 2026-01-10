@@ -1,18 +1,27 @@
 package arrays;
-class sum{
-    void demosum() {
-        int arr[] = {10,20,30,40,50};
-        int sum=0;
+import java.util.Scanner;
+public class sumofelements {
 
-        for (int i = 0; i < arr.length ; i++) {
-            sum=sum+arr[i];
+   static void demosum(int arr[]) {
+        int sum=0;
+        for (int i = 0; i < arr.length; i++) {
+            sum = sum + arr[i];
         }
         System.out.println(sum);
     }
-}
-public class sumofelements {
+
     public static void main(String[] args) {
-        sum obj=new sum();
-        obj.demosum();
+        Scanner sc=new Scanner(System.in);
+
+        System.out.println("enter size of array");
+        int size = sc.nextInt();
+        int arr[] = new int[size];
+
+        System.out.println("enter elements ");
+        for (int i=0; i<arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("sum of elements ");
+        demosum(arr);
     }
 }

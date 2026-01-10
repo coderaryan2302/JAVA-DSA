@@ -1,6 +1,6 @@
 package arrays;
 import java.util.Scanner;
-class counttheelement {
+public class countrepeatelement {
     static void counttherepeatedelement(int arr[],int x) {
         int count = 0;
         for (int i=0; i<arr.length; i++) {
@@ -10,8 +10,7 @@ class counttheelement {
         }
         System.out.println("count of x element " + count);
     }
-}
-public class countrepeatelement {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -28,6 +27,6 @@ public class countrepeatelement {
         System.out.println("enter x");
         int x =sc.nextInt();
 
-        counttheelement.counttherepeatedelement(arr,x);
+        counttherepeatedelement(arr,x);
     }
 }
