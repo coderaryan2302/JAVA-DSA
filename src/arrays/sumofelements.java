@@ -15,12 +15,14 @@ public class sumofelements {
 
         System.out.println("enter size of array");
         int size = sc.nextInt();
+
         int arr[] = new int[size];
 
         System.out.println("enter elements ");
         for (int i=0; i<arr.length; i++) {
             arr[i] = sc.nextInt();
         }
+
         System.out.println("sum of elements ");
         demosum(arr);
     }

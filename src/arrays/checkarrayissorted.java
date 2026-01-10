@@ -22,6 +22,7 @@ public class checkarrayissorted {
         for (int i=0; i< arr.length; i++) {
             arr[i]= sc.nextInt();
         }
+
         System.out.print("array is sorted = ");
         arrayissorted(arr);
     }

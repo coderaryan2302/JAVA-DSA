@@ -35,6 +35,7 @@ public class maxandminvalueofarraywithoutarraysorting {
         for (int i=0; i<arr.length ; i++) {
             arr[i] = sc.nextInt();
         }
+
        System.out.println("maximum elements ");
         maximum(arr);
        System.out.println("minimum elements");

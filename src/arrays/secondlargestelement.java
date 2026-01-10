@@ -25,7 +25,8 @@ public class secondlargestelement {
             }
         }
 
-        // phir se find kr rhe hai largest element ... ab jo largest milega wahi second largest hoga
+        // phir se find kr rhe hai largest element ...
+        // ab jo largest milega wahi second largest hoga
         int secondlargest = firstlargest(arr);
         return secondlargest;
     }

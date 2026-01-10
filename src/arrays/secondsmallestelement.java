@@ -42,6 +42,7 @@ public class secondsmallestelement {
             for (int i = 0; i < arr.length; i++) {
                 arr[i] = sc.nextInt();
             }
+
             System.out.println("second smallest element " + secondsmallest(arr));
         }
     }
