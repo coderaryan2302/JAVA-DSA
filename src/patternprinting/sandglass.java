@@ -18,6 +18,7 @@ public class sandglass {
             for(int j=r-1;j>=i;j--){
                 System.out.print("*");
             }
+
             System.out.println();
         }
 
