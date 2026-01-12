@@ -1,13 +1,21 @@
 package arrays;
 import java.util.Scanner;
-public class sumofelements {
+public class sumandproductofelements {
 
-   static void demosum(int arr[]) {
+   static void sum(int arr[]) {
         int sum=0;
         for (int i = 0; i < arr.length; i++) {
             sum = sum + arr[i];
         }
-        System.out.println(sum);
+        System.out.println("sum of elements " + sum);
+    }
+
+    static void product(int arr[]) {
+        int product=1;
+        for (int i = 0; i < arr.length; i++) {
+            product = product * arr[i];
+        }
+        System.out.println("product of elements " + product);
     }
 
     public static void main(String[] args) {
@@ -23,7 +31,7 @@ public class sumofelements {
             arr[i] = sc.nextInt();
         }
 
-        System.out.println("sum of elements ");
-        demosum(arr);
+        sum(arr);
+        product(arr);
     }
 }
