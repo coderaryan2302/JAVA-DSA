@@ -4,12 +4,11 @@ public class swapingofarray {
 
     static void basicswaping (int a,int b) {
 
-
         System.out.println("Before swapping: a = " + a + ", b = " + b);
 
-        int temp = a;
-        a = b;
-        b = temp;
+        int temp = a;  // temp me a ki value store kar li
+        a = b;         // a me b ki value daal di
+        b = temp;      // b me temp (old a) ki value daal di
         System.out.println("After swapping:  a = " + a + ", b = " + b);
     }
 
@@ -18,9 +17,9 @@ public class swapingofarray {
 
         System.out.println("Before swaping: a = " + a + ", b = " + b);
 
-        a=a+b;
-        b=a-b;
-        a=a-b;
+        a=a+b;           // a = a + b (dono ka sum)
+        b=a-b;           // b = a - b (old a mil jayega)
+        a=a-b;           // a = a - b (old b mil jayega)
         System.out.println("After swapping:  a = " + a + ", b = " + b);
     }
 
