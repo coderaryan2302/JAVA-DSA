@@ -1,56 +1,107 @@
 package arrays;
-import java.util.Arrays; //38no line ke liye import file hai
+
+import java.util.Arrays; // Arrays.copyOf() method use karne ke liye
 import java.util.Scanner;
+
 public class copythearray {
-    static void printarray(int[] arr) {  // static keyword lga hai bina obj bna ke direct call ho jayega
+    static void printarray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i]);
         }
-        System.out.println(); //nextline ke line use kiye h
+        System.out.println();
     }
 
+    public static void main(String[] args) {
 
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter size of array");
+        int n = sc.nextInt();
+        int arr[] = new int[n];
 
-            // taking size of an array
-            System.out.println("enter size of array");
-            int n = sc.nextInt();
-            int arr[] = new int[n];
-
-            // taking input element from user
-            System.out.println("enter elements ");
-            for (int i=0; i<arr.length; i++) {
-                arr[i] = sc.nextInt();
-            }
-
-            System.out.println("orginal array");
-            printarray(arr);     // methods lga ke print krwane ka tarika
-
-//  without methods lga ke print krwane ka tarika
-//        for (int i = 0; i <n; i++) {
-//            System.out.println(arr[i]);
-//        }
-
-//  trying to copy arr to arr2
-         //   int[] arr2 = arr; // shallow copy hua jisme purana array 1 ko copy kiya gya hai .. ye bhi rasta hai copy krne k
-         //   int[] arr2 = arr.clone();// arr.clone() ye ek inbuilt methods h jo deep copy kiya hai
-         //   int[] arr2 = Arrays.copyOf(arr, arr.length); // deep copy kiya gya hai .... Arrays.copyOf(arr,arr.length) ye bhi inbuilt methods h array import java file mai jo copy krta hai .. isme 1st parameter hai jo array se copy krna hai wo dey do or .. 2nd parameter hai arr.length
-            int[] arr2 =Arrays.copyOf(arr, 2); //isme 2 tk hee copy krega
-            System.out.println("copied array2");
-            printarray(arr2);
-
-
-//            changes the value in arr2 by manually
-            arr2[0]=21;
-            arr2[1]=26;
-            System.out.println("changement in array2");
-            printarray(arr2); // methods lga ke copy krwa ke print krwana
-
-
-//  without methods lga ke copy krwa ke print krwana
-//        for (int i=0; i<n; i++) {
-//            System.out.println(arr2[i]);
-//        }
+        System.out.println("enter elements ");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
         }
+
+//
+//         * original array ko print kar rahe hain
+//         * taaki pata chale starting me array me kya hai
+
+        System.out.println("orginal array");
+        printarray(arr);
+
+        // ================= ARRAY COPY PART =================
+
+        /*
+         * -------- SHALLOW COPY --------
+         *
+         * int[] arr2 = arr;
+         *
+         * yahan kya hota:
+         * - koi naya array nahi banta
+         * - arr2 ko arr ka address mil jata hai
+         * - dono SAME memory ko point karte hain
+         *
+         * agar arr2 change hua
+         * to arr bhi change ho jayega
+         *
+         * isliye isko SHALLOW COPY kehte hain
+         * (unsafe)
+         */
+
+        /*
+         * -------- DEEP COPY (METHOD 1) --------
+         *
+         * int[] arr2 = arr.clone();
+         *
+         * clone() kya karta hai:
+         * - ek naya array banata hai
+         * - arr ke saare elements copy karta hai
+         * - arr aur arr2 alag-alag memory me hote hain
+         */
+
+        /*
+         * -------- DEEP COPY (METHOD 2) --------
+         *
+         * int[] arr2 = Arrays.copyOf(arr, arr.length);
+         *
+         * yeh bhi naya array banata hai
+         * pura array copy hota hai
+         */
+
+        /*
+         * -------- TUMHARA ACTUAL CODE --------
+         *
+         * yeh bhi DEEP COPY hai
+         * lekin sirf first 2 elements copy ho rahe hain
+         */
+        int[] arr2 = Arrays.copyOf(arr, 2);
+
+//
+//         * arr2 ka apna alag memory hai
+//         * arr se koi relation nahi hai ab
+
+        System.out.println("copied array2");
+        printarray(arr2);
+
+//
+//         * ab hum arr2 ke elements change kar rahe hain
+//         * sirf arr2 change hoga
+//         * arr par koi effect nahi padega
+//
+        arr2[0] = 21;
+        arr2[1] = 26;
+        System.out.println("changement in array2");
+        printarray(arr2);
+
+//
+//         * original array dobara print kar rahe hain
+//         * agar deep copy sahi hai
+//         * to arr bilkul same rehna chahiye
+//
+        System.out.println("original array again");
+        printarray(arr);
+
+
     }
+}

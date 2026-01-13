@@ -1,61 +1,95 @@
 package arrays;
-class searchelement {
-    void presentelement() {
 
-        //case 1 (ek hee baar aaya ho)
-//        int arr[] = {10, 20, 30, 40, 50};
-//        int x = 30;
-//        int ans = -1;            // ye hum isliye liye agr koi aisa element x ke jagah pe dey jo array mai n ho tb wo answer dey ga -1
-//        for (int i = 0; i < arr.length; i++) {
-//            if (arr[i] == x) {
-//                ans = i;
-//            }
-//        }
-//        System.out.println("element x at index " + ans);
+import java.util.Scanner;
+
+public class elementxispresentinarray {
+
+    static void presentelement(int arr[], int x) {
+
+        // CASE 1: Element present hai ya nahi
+        boolean present = false;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == x) {
+                present = true;
+                break;
+            }
+        }
+        if (present) {
+            System.out.println("CASE 1: Element is PRESENT");
+        } else {
+            System.out.println("CASE 1: Element is NOT PRESENT");
+        }
+
+        // CASE 2: Element first time kis index pe aaya
+        int ans;
+        ans = -1;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == x) {
+                ans = i;
+                break;
+            }
+        }
+        System.out.println("CASE 2 (First index): " + ans);
+
+        // CASE 3: Element kaha-kaha aaya
+        System.out.print("CASE 3 (All indexes): ");
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == x) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+
+        // CASE 4: Element last index pe kaha aaya
+        ans = -1;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == x) {
+                ans = i;
+            }
+        }
+        System.out.println("CASE 4 (Last index): " + ans);
 
 
-        //case 2 (phli baar kon se index pe aaya hai)
-//        int arr[] = {10, 20, 30, 40, 50, 30};
-//        int x = 30;
-//        int ans = -1;
-//        for (int i = 0; i < arr.length; i++) {
-//            if ((arr[i] == x) && (ans==-1)) {
-//                ans = i;
-                // break;                                 // break keyword bhi use kr skte hai and condition ke bina
-//                System.out.println("element x at index " + ans);
-//            }
-//        }
-//
-
-       //case 3 (multiple index pe kab kab aaya hai)
-//        int arr[] = {10, 20, 30, 40, 50, 30};
-//        int x = 30;
-//        int ans = -1;
-//        for (int i = 0; i < arr.length; i++) {
-//            if (arr[i] == x)  {
-//                ans = i;
-//            }
-//            System.out.println("element x at index " + ans);
-//        }
-
-      //  case  (last index pe kab aaya hai)
-//        int arr[] = {10, 20, 30, 40, 50, 30};
-//        int x = 30;
-//        int ans = -1;
-//        for (int i = 0; i < arr.length; i++) {
-//            if (arr[i] == x)  {
-//                ans = i;
-//            }
-//        }
-//        System.out.println("element x at index " + ans);
+        // CASE 5: Element kitni baar aaya (COUNT)
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == x) {
+                count++;
+            }
+        }
+        System.out.println("CASE 5 (Count): " + count);
 
 
+        // CASE 6: Element second time kis index pe aaya
+        int c = 0;
+        ans = -1;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == x) {
+                c++;
+                if (c == 2) {
+                    ans = i;
+                    break;
+                }
+            }
+        }
+        System.out.println("CASE 6 (Second index): " + ans);
+
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter size of array: ");
+        int n = sc.nextInt();
+
+        int arr[] = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.print("Enter element to search: ");
+        int x = sc.nextInt();
+        presentelement(arr,x);
     }
 }
-        public class elementxispresentinarray {
-        public static void main(String[] args) {
-            searchelement obj = new searchelement();
-            obj.presentelement();
-        }
-    }
-
