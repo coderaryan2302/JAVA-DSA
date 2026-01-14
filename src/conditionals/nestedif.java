@@ -36,7 +36,6 @@ public class nestedif {
         else {
                 System.out.println("negative no");
             }
-
         }
     }
 

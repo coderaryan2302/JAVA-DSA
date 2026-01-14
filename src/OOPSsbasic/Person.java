@@ -2,7 +2,7 @@
 //      toyota,bmw,alto etc all are objects
 // objects =instances of class.
 // clasess= blueprint/template of real world entities or objects
-//  modelno,colour,year of manufacture all are these attributes..
+//  modelno,color,year of manufacture all are these attributes..
 //  brake,accleration all are these functionality or methods..
 //
 // 3 chractersrtics of an object
