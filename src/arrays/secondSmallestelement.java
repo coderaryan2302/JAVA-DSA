@@ -1,6 +1,5 @@
 package arrays;
 import java.util.Scanner;
-
 public class secondSmallestelement {
 
         // Ye function array ka sabse chhota (smallest) element return karta hai

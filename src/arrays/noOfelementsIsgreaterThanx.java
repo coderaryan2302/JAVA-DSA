@@ -1,6 +1,5 @@
 package arrays;
 import java.util.Scanner;
-
 public class noOfelementsIsgreaterThanx {
     static void elementsIsgreater(int arr[],int x){
         int count=0;

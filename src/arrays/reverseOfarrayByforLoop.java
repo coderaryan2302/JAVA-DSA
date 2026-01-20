@@ -6,7 +6,7 @@ public class reverseOfarrayByforLoop {
     static void reversing(int arr[], int ansarr2[]) {
         int j=0;                                        // arr2 ka index 0 se start hoga
         for (int i = arr.length - 1; i >= 0; i--) {     // i last index se start hoke 0 tak jayega
-            ansarr2[j] = arr[i];                           // arr ke last element ko arr2 ke starting me store kar rahe hai
+            ansarr2[j] = arr[i];                        // arr ke last element ko arr2 ke starting me store kar rahe hai
             j++;                                        // arr2 ka index aage badha rahe hai
         }
     }

@@ -2,7 +2,6 @@ package arrays;
 import java.util.Scanner;
 public class secondLargestelement {
 
-
     //  Ye function array ka sabse bada (largest) element return karta hai
     static int firstLargest(int arr[]) {
         int max = Integer.MIN_VALUE;                  // max ko sabse chhoti possible value se initialize kar rahe hain
@@ -13,7 +12,6 @@ public class secondLargestelement {
         }
         return max;                                   //largest element return kar rahe hain
     }
-
 
     //  Ye function array ka second largest element print karta hai
     static int secondlargest(int arr[]) {

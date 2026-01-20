@@ -2,7 +2,6 @@ package arrays;
 import java.util.Scanner;
 public class evenOddsorting {
     static void swaping(int arr[] , int start, int end) {
-
         int temp = arr[start];
         arr[start] = arr[end];
         arr[end] = temp;

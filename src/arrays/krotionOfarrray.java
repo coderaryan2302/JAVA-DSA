@@ -1,7 +1,5 @@
 package arrays;
-
 import java.util.Scanner;
-
 public class krotionOfarrray {
 
     // yeh function array ko right side me k times rotate karta hai
