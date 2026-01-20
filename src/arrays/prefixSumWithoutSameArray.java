@@ -24,7 +24,7 @@ public class prefixSumWithoutSameArray {
         System.out.println("prefix sum array");
         prefixSum(arr,ansprefix);
         for (int i = 0; i < arr.length ; i++) {
-            System.out.println(ansprefix[i]);
+            System.out.println(ansprefix[i] + " ");
         }
     }
 }

@@ -23,7 +23,7 @@ public class prefixSumIntheSameArray {
         prefixSum(arr);
         System.out.println("prefix sum array");
         for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
+            System.out.print(arr[i] + " ");
         }
     }
 }
