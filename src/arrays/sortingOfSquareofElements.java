@@ -1,5 +1,4 @@
 package arrays;
-import java.util.Arrays;
 import java.util.Scanner;
 public class sortingOfSquareofElements {
     static void square(int arr[]){

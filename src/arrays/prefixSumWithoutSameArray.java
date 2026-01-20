@@ -1,6 +1,6 @@
 package arrays;
 import java.util.Scanner;
-public class prefixSumIntheWithoutSameArray {
+public class prefixSumWithoutSameArray {
     static void prefixSum (int arr[],int ansprefix[]){
        ansprefix[0]=arr[0];
         for(int i=1; i<arr.length; i++){
