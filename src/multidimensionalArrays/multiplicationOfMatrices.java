@@ -21,10 +21,10 @@ public class multiplicationOfMatrices {
                     }
                 }
             }
-            printmatrix(multiplication);                                          // display final multiplication matrix
+            printmatrix(multiplication);                                                             // display final multiplication matrix
         }
         else {
-            System.out.println("invalid input - multiplication not possible");    // sizes not compatible
+            System.out.println("invalid input - multiplication not possible");                       // sizes not compatible
         }
     }
 
@@ -34,11 +34,11 @@ public class multiplicationOfMatrices {
         System.out.println("enter the value of rows and columns of matrix 1");
         System.out.println("enter the no. of rows");
         int r1 = sc.nextInt();
-
         System.out.println("enter the no. of columns");
         int c1 = sc.nextInt();
 
         int arr1[][] = new int[r1][c1];                          // declare and create matrix 1
+
         System.out.println("enter elements ");
         for (int i = 0; i < r1; i++) {                           // loop for matrix 1 rows
             for (int j = 0; j < c1; j++) {                       // loop for matrix 1 columns
@@ -49,11 +49,11 @@ public class multiplicationOfMatrices {
         System.out.println("enter the value of rows and columns of matrix 2");
         System.out.println("enter the no. of rows");
         int r2 = sc.nextInt();
-
         System.out.println("enter the no. of columns");
         int c2 = sc.nextInt();
 
         int arr2[][] = new int[r2][c2];                          // declare and create matrix 2
+
         System.out.println("enter elements ");
         for (int i = 0; i < r2; i++) {                           // loop for matrix 2 rows
             for (int j = 0; j < c2; j++) {                       // loop for matrix 2 columns
