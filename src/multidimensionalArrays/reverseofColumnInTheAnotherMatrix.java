@@ -12,21 +12,23 @@ public class reverseofColumnInTheAnotherMatrix {
     }
 
     static void swappingofMatrix(int[][] matrix, int r1, int c1){
-        int ansmatrix[][] = new int[r1][c1];      // extra matrix
-        for(int i = 0; i < r1; i++){              // row loop
-            int start = 0;
-            int end = c1 - 1;
+        int ansmatrix[][] = new int[r1][c1];          // create extra matrix to store reversed columns
 
-            while(start <= end){
-                int temp = matrix[i][start];     // basic swap style
-                ansmatrix[i][start] = matrix[i][end];
-                ansmatrix[i][end] = temp;
-                start++;
-                end--;
+        for(int i = 0; i < r1; i++){                  // loop to fix one row at a time
+            int start = 0;                            // leftmost column index of current row
+            int end = c1 - 1;                         // rightmost column index of current row
+
+            while(start <= end){                      // copy elements including middle column
+                int temp = matrix[i][start];          // store left column element temporarily
+                ansmatrix[i][start] = matrix[i][end]; // copy right column element to left position
+                ansmatrix[i][end] = temp;             // place stored element to right position
+                start++;                              // move to next left column
+                end--;                                // move to next right column
             }
         }
-        printmatrix(ansmatrix);                   // print reversed rows matrix
+        printmatrix(ansmatrix);                       // print final reversed matrix
     }
+
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -49,7 +51,17 @@ public class reverseofColumnInTheAnotherMatrix {
         System.out.println("original matrix");
         printmatrix(matrix);
 
-        System.out.println("swapping each row of matrix");
+        System.out.println("swapping each column of matrix");
         swappingofMatrix(matrix, r1, c1);
     }
 }
+
+
+
+/*
+start <= end
+Yahan hum new matrix (ansmatrix) me values copy kar rahe hote hain
+ Jab start == end hota hai → middle element hota hai
+Middle element ko bhi new matrix me copy karna zaruri hota hai
+Isliye condition start <= end use hoti hai
+*/

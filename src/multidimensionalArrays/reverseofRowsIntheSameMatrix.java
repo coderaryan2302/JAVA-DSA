@@ -11,17 +11,17 @@ public class reverseofRowsIntheSameMatrix {
     }
 
     static void swappingofMatrix(int[][] matrix){
-        int start = 0;
-        int end = matrix.length - 1;
+        int start = 0;                                  // sabse upar wali row ka index
+        int end = matrix.length - 1;                    // sabse neeche wali row ka index
 
-        while(start < end ) {                   // swap rows till middle
-            int[] temp = matrix[start];         // store top row
-            matrix[start] = matrix[end];        // move bottom row to top
-            matrix[end] = temp;                 // place stored row at bottom
-            start++;                            // move start down
-            end--;                              // move end up
+        while(start < end ) {                           // same matrix me middle row ko swap karne ki zarurat nahi hoti
+            int[] temp = matrix[start];                 // upar wali poori row ko temporary store
+            matrix[start] = matrix[end];                // neeche wali row ko upar le aana
+            matrix[end] = temp;                         // temporary stored row ko neeche rakhna
+            start++;                                    // next neeche wali row par move
+            end--;                                      // next upar wali row par move
         }
-            printmatrix(matrix);                // print reversed rows matrix
+        printmatrix(matrix);                            // rows reverse hone ke baad matrix print
     }
 
     public static void main(String[] args) {
@@ -48,3 +48,14 @@ public class reverseofRowsIntheSameMatrix {
         swappingofMatrix(matrix);
     }
 }
+
+
+
+
+/*
+start < end
+Same matrix me hum direct swap kar rahe hote hain
+Jab start == end hota hai → middle element hota hai
+Middle element ko khud se swap karne ki zarurat nahi hoti
+Isliye condition start < end rakhi jaati hai
+*/

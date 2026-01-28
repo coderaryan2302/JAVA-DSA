@@ -11,20 +11,21 @@ public class reverseofColumnInTheSameMatrix {
     }
 
     static void swappingofMatrix(int[][] matrix ){
-        for(int i=0;i<matrix.length;i++){
-            int start=0;
-            int end=matrix[i].length-1;
+        for(int i = 0; i < matrix.length; i++){              // fix one row at a time for reversal
+            int start = 0;                                   // leftmost column index of current row
+            int end = matrix[i].length - 1;                  // rightmost column index of current row
 
-            while(start<end){
-                int temp = matrix[i][start];           // store left element
-                matrix[i][start] = matrix[i][end];     // swap with right
-                matrix[i][end] = temp;                 // put temp value
-                start++;                               // move forward
-                end--;                                 // move backward
+            while(start < end){                              // same matrix: middle element ko swap karna nahi hota
+                int temp = matrix[i][start];                 // left column element ko temporary variable me store
+                matrix[i][start] = matrix[i][end];           // right column element ko left side me assign
+                matrix[i][end] = temp;                       // temporary stored value ko right side me assign
+                start++;                                     // next left column ki taraf move
+                end--;                                       // next right column ki taraf move
             }
         }
-        printmatrix(matrix);                           // print reversed column matrix
+        printmatrix(matrix);                                 // final matrix print after in-place reversal
     }
+
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -50,3 +51,12 @@ public class reverseofColumnInTheSameMatrix {
         swappingofMatrix(matrix);
     }
 }
+
+
+/*
+start < end
+Same matrix me hum direct swap kar rahe hote hain
+Jab start == end hota hai → middle element hota hai
+Middle element ko khud se swap karne ki zarurat nahi hoti
+Isliye condition start < end rakhi jaati hai
+*/

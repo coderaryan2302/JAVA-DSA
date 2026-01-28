@@ -11,20 +11,21 @@ public class reverseofRowsInTheAnotherMatrix {
     }
 
     static void swappingofMatrix(int[][] matrix , int r1, int c1) {
-        int ansmatrix[][] = new int[r1][c1];             // extra matrix
-        for(int j = 0; j < c1; j++) {                    // column loop
-            int start = 0;
-            int end = r1 - 1;
+        int ansmatrix[][] = new int[r1][c1];              // reversed result store karne ke liye naya matrix
 
-            while (start <= end) {
-                int temp = matrix[start][j];             // basic swap style
-                ansmatrix[start][j] = matrix[end][j];
-                ansmatrix[end][j] = temp;
-                start++;
-                end--;
+        for(int j = 0; j < c1; j++) {                     // ek-ek column ko fix karne ke liye loop
+            int start = 0;                                // sabse upar wali row ka index
+            int end = r1 - 1;                             // sabse neeche wali row ka index
+
+            while (start <= end) {                        // extra matrix me middle row ko bhi copy karna hota hai
+                int temp = matrix[start][j];              // upar wali row ka element temporary store
+                ansmatrix[start][j] = matrix[end][j];     // neeche wali row ka element upar copy
+                ansmatrix[end][j] = temp;                 // temporary value ko neeche copy
+                start++;                                  // next neeche wali row par move
+                end--;                                    // next upar wali row par move
             }
         }
-        printmatrix(ansmatrix);                           // print reversed column matrix
+        printmatrix(ansmatrix);                           // rows reverse hone ke baad matrix print
     }
 
     public static void main(String[] args) {
@@ -52,3 +53,13 @@ public class reverseofRowsInTheAnotherMatrix {
     }
 }
 
+
+
+
+/*
+start <= end
+Yahan hum new matrix (ansmatrix) me values copy kar rahe hote hain
+ Jab start == end hota hai → middle element hota hai
+Middle element ko bhi new matrix me copy karna zaruri hota hai
+Isliye condition start <= end use hoti hai
+*/
