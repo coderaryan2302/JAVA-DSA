@@ -9,21 +9,11 @@ public class fibonacciSeries {
         int a=0;
         int b=1;
 
-//        method 1
-//        int i=1;
-//        while(i<=n){
-//            System.out.print(a + " ");
-//            int c=a+b;
-//            a=b;
-//            b=c;
-//            i++;
-
-//        method 2
-//         for(int i=1;i<=n;i++){
-//           System.out.print(a + " ");
-//           int c=a+b;
-//           a=b;
-//           b=c;
-//          }
+        for(int i=0;i<=n;i++){
+           System.out.print(a + " ");
+           int c=a+b;
+           a=b;
+           b=c;
+        }
     }
 }
