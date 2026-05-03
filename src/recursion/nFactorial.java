@@ -3,11 +3,7 @@ import java.util.Scanner;
 public class nFactorial {
 
     static int factorial(int n) {
-        if (n < 0) {
-            System.out.println("Factorial not defined");
-            return -1;
-        }
-        else if (n == 0) {
+        if (n == 0) {
             return 1;
         }
         else {
@@ -19,6 +15,12 @@ public class nFactorial {
         Scanner sc = new Scanner(System.in);
         System.out.println("enter n factorial no.");
         int n = sc.nextInt();
+
+        if (n < 0) {
+            System.out.println("Factorial not defined");
+            return ;
+        }
+
         System.out.println(factorial(n));
     }
 }

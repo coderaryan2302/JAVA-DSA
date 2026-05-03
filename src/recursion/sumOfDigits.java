@@ -3,7 +3,8 @@ import java.util.Scanner;
 public class sumOfDigits {
 
     static int sum(int n) {
-        if (n>=0 && n<=9){
+        n = Math.abs(n);
+        if (n>=0 || n<=9){
             return n;
         }
         else{
@@ -18,3 +19,11 @@ public class sumOfDigits {
         System.out.println(sum(n));
     }
 }
+
+/*
+1. Math.abs(n) → number ko positive banata hai
+2. Negative ho to sign hata deta hai (-123 → 123)
+3. Positive ho to same rehta hai
+4. "n =" se updated value store hoti hai
+5. Isse recursion me negative numbers bhi sahi handle hote hain
+*/

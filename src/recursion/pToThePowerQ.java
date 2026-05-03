@@ -3,11 +3,16 @@ import java.util.Scanner;
 public class pToThePowerQ {
 
     // method 1
-    static int power(int p , int q){
-        if(q==0){
+    static int power(int p , int q) {
+        if (q == 0) {
             return 1;
         }
-        return p * power(p, q-1);
+        if (q == 1) {
+            return p;
+        }
+        else {
+            return p * power(p, q - 1);
+        }
     }
 
     // method 2
@@ -15,18 +20,22 @@ public class pToThePowerQ {
         if(q==0){
             return 1;
         }
-
-        else if (q%2==0){      //even
-            return power2(p, q/2) * power2(p, q/2);
+        if(q==1){
+            return p;
         }
-        else {                // odd
-            return p * power2(p, q/2) *  power2(p, q/2);
+
+        int ans = power2(p, q/2);
+        if (q % 2 == 0){            // even
+            return ans * ans;
+        }
+        else {                      // odd
+            return p * ans * ans;
         }
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("enter p ");
+        System.out.println("enter base p ");
         int p = sc.nextInt();
         System.out.println("enter power q ");
         int q = sc.nextInt();
@@ -34,3 +43,8 @@ public class pToThePowerQ {
         System.out.println("method 2 : " + power2(p, q));
     }
 }
+
+/*
+ this code is not for negative power ( q<0 ) ...
+ negative power means divide and value in decimal ...
+ */
