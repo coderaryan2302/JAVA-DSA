@@ -3,7 +3,7 @@ import  java.util.Scanner;
 public class maxElementOfArray {
 
     static int max(int arr [], int index){
-        if(index==arr.length-1){                                   // Base case: last element
+        if(index == arr.length-1){                                   // Base case: last element
             return arr[index];
         }
         int ans = max(arr,index+1);                          // Recursive call
@@ -15,12 +15,8 @@ public class maxElementOfArray {
         System.out.println("enter size of array");
         int n=sc.nextInt();
 
-        if  (n < 0) {
-            System.out.println("Invalid Input");
-            return;
-        }
-        if (n == 0) {
-            System.out.println("Array is Empty");
+        if  (n <= 0) {
+            System.out.println("Invalid array size");
             return;
         }
 

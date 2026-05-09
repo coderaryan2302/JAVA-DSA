@@ -4,11 +4,11 @@ public class countOfDigits {
 
     static int count(int n){
         n = Math.abs(n);
-        if (n>=0 && n<=9){
+        if (n >= 0 && n <= 9){              // base case: single digit number
             return 1;
         }
         else {
-            return 1 + count(n/10);
+            return 1 + count(n/10);      // self work + recursive call: n/10 se last digit remove hota hai
         }
     }
 
@@ -19,9 +19,6 @@ public class countOfDigits {
         System.out.println(count(n));
     }
 }
-
-
-
 
 
 /*

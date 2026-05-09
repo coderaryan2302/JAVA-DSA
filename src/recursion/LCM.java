@@ -3,13 +3,13 @@ import java.util.Scanner;
 public class LCM {
 
     static int lcm(int a,int b,int max){
-        if (a==0 || b==0){
+        if (a==0 || b==0){                // base case
             return 0;
         }
-        if(max%a==0 && max%b==0){
+        if(max%a==0 && max%b==0){         // base case
             return max;
         }
-        return lcm(a,b, max+1);
+        return lcm(a,b, max+1);      // recursive call
     }
 
     public static void main(String[] args) {

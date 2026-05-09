@@ -7,7 +7,7 @@ public class printElementsOfArray {
             return;
         }
         else{
-            System.out.print(arr[index] + " ");             // self work ...   arr[0] ko khud print kiya
+            System.out.print(arr[index] + " ");             // self work: arr[0] ko khud print kiya
             printArray(arr, index+1);                 // recursive work
         }
     }
@@ -17,12 +17,8 @@ public class printElementsOfArray {
         System.out.println("enter the size of the array");
         int n=sc.nextInt();
 
-        if (n < 0) {
-            System.out.println("Invalid size! Array cannot be negative");
-            return;
-        }
-        if (n == 0) {
-            System.out.println("Array is empty");
+        if (n <= 0) {
+            System.out.println("Invalid array size");
             return;
         }
 

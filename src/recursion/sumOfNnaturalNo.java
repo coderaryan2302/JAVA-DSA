@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class sumOfNnaturalNo {
 
     static int sum(int n){
-        if (n <= 0){
+        if (n <= 0){            // base case
             return 0;
         }
-         return n + sum (n-1) ;
+         return n + sum (n-1) ;       // self work + recursive work
     }
 
     public static void main(String[] args) {

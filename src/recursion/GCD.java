@@ -7,13 +7,13 @@ public class GCD {
         x = Math.abs(x);
         y = Math.abs(y);
 
-        if (x == 0 && y == 0) {
-            return -1;         // -1 means undefined
+        if (x == 0 && y == 0) {   // base case: gcd of 0 and 0 is undefined
+            return -1;            // -1 means undefined
         }
-        if (y==0){            // base case
+        if (y==0){                // base case: gcd of x and 0 is x
             return x;
         }
-        return gcd(y,x%y);
+        return gcd(y,x%y);     // recursive call: gcd of y and x mod y
     }
 
     public static void main(String[] args) {

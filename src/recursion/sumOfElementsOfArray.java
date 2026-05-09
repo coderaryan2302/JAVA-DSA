@@ -3,11 +3,11 @@ import java.util.Scanner;
 public class sumOfElementsOfArray {
 
     static int sum (int[] arr,int index){
-        if(index==arr.length){                          // base case
+        if(index == arr.length){                        // base case : when index reaches end of array, return 0 as sum of empty array is 0
             return 0;
         }
-        int ans = sum(arr,index+1);               // recursive work
-        return ans+arr[index];                          // self work
+        int ans = sum(arr,index+1);               // recursive work: sum of elements from index+1 to end of array
+        return ans+arr[index];                          // self work: add current element to the sum obtained from recursive call
     }
 
     public static void main(String[] args) {
@@ -15,12 +15,8 @@ public class sumOfElementsOfArray {
         System.out.println("enter size of array");
         int n=sc.nextInt();
 
-        if  (n < 0) {
-            System.out.println("Invalid Input");
-            return;
-        }
-        if (n == 0) {
-            System.out.println("Array is Empty");
+        if  (n <= 0) {
+            System.out.println("Invalid array size");
             return;
         }
 

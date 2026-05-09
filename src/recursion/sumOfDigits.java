@@ -4,11 +4,11 @@ public class sumOfDigits {
 
     static int sum(int n) {
         n = Math.abs(n);
-        if (n>=0 || n<=9){
+        if (n>=0 && n<=9){                 // base case: agar n single digit ka hai to wahi return karo
             return n;
         }
         else{
-            return sum(n/10)+(n%10);
+            return sum(n/10)+(n%10);    // self work + recursive call: n/10 se last digit hata do aur n%10 se last digit nikal lo, dono ko add karke return karo
         }
     }
 

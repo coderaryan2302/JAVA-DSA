@@ -6,20 +6,20 @@ public class sumAndMultiplyOfNo {
         if (x == 0) {                                         // base case
             return y;
         }
-        if (x > 0) {                                          // +ve no
+        if (x > 0) {                                         // recursive call:  +ve no
             return sum(x - 1, y + 1);
         }
-        return sum(x + 1, y - 1);                      // -ve no
+        return sum(x + 1, y - 1);                      // recursive call:  -ve no
     }
 
     static int multiply(int x, int y) {
         if (y == 0){                                         // base case
             return 0;
         }
-        if (y > 0) {                                         // +ve no
+        if (y > 0) {                                         // recursive call:  +ve no
             return x + multiply(x, y - 1);
         }
-        return -x + multiply(x, y + 1);                   // -ve no
+        return -x + multiply(x, y + 1);                   // recursive call:  -ve no
     }
 
     public static void main(String[] args) {
