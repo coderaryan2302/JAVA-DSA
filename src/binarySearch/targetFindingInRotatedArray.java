@@ -5,23 +5,28 @@ public class targetFindingInRotatedArray {
     static void findTarget(int arr[], int target) {
         int start = 0;
         int end = arr.length - 1;
+        boolean found = false;
 
         while (start <= end) {
             int mid = start + (end - start) / 2;
-
-            // Target found
             if (arr[mid] == target) {
-                System.out.println("target found at index: " + mid);
+                found = true;
+                System.out.println("Target present at indexes:");
+                for (int i = 0; i < arr.length; i++) {
+                    if (arr[i] == target) {
+                        System.out.print(i + " ");
+                    }
+                }
                 return;
             }
 
-            // Duplicate handling
+            // duplicate case handling
             if (arr[start] == arr[mid] && arr[mid] == arr[end]) {
                 start++;
                 end--;
             }
 
-            // Left half sorted
+            // left half sorted
             else if (arr[start] <= arr[mid]) {
                 if (target >= arr[start] && target < arr[mid]) {
                     end = mid - 1;
@@ -31,7 +36,7 @@ public class targetFindingInRotatedArray {
                 }
             }
 
-            // Right half sorted
+            // right half sorted
             else {
                 if (target > arr[mid] && target <= arr[end]) {
                     start = mid + 1;
@@ -41,7 +46,10 @@ public class targetFindingInRotatedArray {
                 }
             }
         }
-        System.out.println("target not found in the array");
+
+        if (!found) {
+            System.out.println("target not found in the array");
+        }
     }
 
     public static void main(String[] args) {
@@ -58,6 +66,7 @@ public class targetFindingInRotatedArray {
         int[] arr = new int[n];
 
         System.out.println("enter rotated sorted array elements");
+
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
@@ -67,5 +76,4 @@ public class targetFindingInRotatedArray {
 
         findTarget(arr, target);
     }
-}
 }
