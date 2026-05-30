@@ -1,6 +1,7 @@
 package binarySearch;
 import java.util.Scanner;
 public class targetFindingByRecursion {
+
     static int binarySearch(int arr [] , int target , int start , int end){
         if (start > end){      // base case
             return -1;
@@ -10,7 +11,7 @@ public class targetFindingByRecursion {
             return mid;
         }
         else if (arr[mid] < target){
-            return binarySearch(arr, target, mid + 1, end);   // recursive call
+            return binarySearch(arr, target, mid + 1, end);     // recursive call
         }
         else {
             return binarySearch(arr, target, start, mid - 1);   // recursive call

@@ -48,6 +48,7 @@ public class findingIndicesOfMinElementOfRotatedArray {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
+
         findIndicesOfMinElement(arr);
     }
 }
