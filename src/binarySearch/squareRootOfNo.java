@@ -56,4 +56,27 @@ public class squareRootOfNo {
 
 /*
 this code can't find square root of float value. eg - 24.6 etc.
+
+/*
+Problem:
+Find Square Root Using Binary Search.
+
+Logic:
+1. Find Integer Part Using Binary Search.
+2. Find Decimal Part Using Increment Method.
+
+Limitation:
+Works Only For Integer Input.
+
+Examples:
+10 -> 3.16227
+25 -> 5.0
+
+Complexity:
+Time -> O(log n)
+Space -> O(1)
+
+Revision:
+mid² < x -> Go Right
+mid² > x -> Go Left
 */

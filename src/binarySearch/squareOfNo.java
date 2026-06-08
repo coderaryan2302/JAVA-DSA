@@ -31,3 +31,23 @@ public class squareOfNo {
         System.out.println("Square of " + y + " is " + result2);
     }
 }
+
+
+/*
+Problem: Find Square Of A Number.
+
+Square = Number * Number
+
+Works For:
+Positive
+Negative
+Decimal
+Zero
+
+Binary Search Not Required.
+
+Complexity:
+Current Code -> O(log n)
+Direct Approach -> O(1)
+
+*/

@@ -55,6 +55,18 @@ public class findingIndicesOfMinElementOfRotatedArray {
 
 
 /*
-ye code ek roated array pe work krega .
-or minimum element ke indices ko print krega .
- */
+Problem:
+Find Minimum Element In Rotated Sorted Array.
+
+Also Print All Indices Of Minimum Element.
+Handles Duplicates Also.
+
+Complexity:
+Average -> O(log n)
+Worst Case (Duplicates) -> O(n)
+
+Revision:
+arr[mid] > arr[end] -> Go Right
+arr[mid] < arr[end] -> Go Left
+arr[mid] == arr[end] -> end--
+*/

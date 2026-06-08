@@ -13,7 +13,7 @@ public class multiplicationOfMatrices {
 
     static void multiplication(int arr1[][], int r1, int c1, int arr2[][], int r2, int c2) {
         if (c1 == r2) {                                          // check valid condition for multiplication
-            int ansmultiplicationmatrix[][] = new int[r1][c2];            // create result matrix of size r1 x c2
+            int ansmultiplicationmatrix[][] = new int[r1][c2];   // create result matrix of size r1 x c2
             for (int i = 0; i < r1; i++) {                       // iterate rows of first matrix
                 for (int j = 0; j < c2; j++) {                   // iterate columns of second matrix
                     for (int k = 0; k < c1; k++) {               // iterate common dimension
@@ -21,10 +21,10 @@ public class multiplicationOfMatrices {
                     }
                 }
             }
-            printmatrix(ansmultiplicationmatrix);                                                             // display final multiplication matrix
+            printmatrix(ansmultiplicationmatrix);                                   // display final multiplication matrix
         }
         else {
-            System.out.println("invalid input - multiplication not possible");                       // sizes not compatible
+            System.out.println("invalid input - multiplication not possible");
         }
     }
 

@@ -66,7 +66,6 @@ public class targetFindingInRotatedArray {
         int[] arr = new int[n];
 
         System.out.println("enter rotated sorted array elements");
-
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
@@ -77,3 +76,23 @@ public class targetFindingInRotatedArray {
         findTarget(arr, target);
     }
 }
+
+
+/*
+Problem: Find Target In Rotated Sorted Array.
+
+Logic:
+Find Sorted Half.
+If Target Lies In That Range,
+Search There.
+Otherwise Search Other Half.
+
+Duplicate Case:
+arr[start] == arr[mid] == arr[end]
+start++
+end--
+
+Complexity:
+Average -> O(log n)
+Worst -> O(n)
+*/

@@ -82,5 +82,24 @@ public class occurenceOfTarget {
 }
 
 /*
-array can't sorted and if array can be sorted but in descending order . this code will not work.
+Problem:
+Find First Occurrence,
+Last Occurrence And
+Total Occurrence Of Target.
+
+Important:
+Array Must Be Sorted
+In Ascending Order.
+
+Will Not Work For:
+Unsorted Array
+Descending Sorted Array
+
+Logic:
+First Occurrence -> Move Left
+Last Occurrence -> Move Right
+
+Complexity:
+Time -> O(log n)
+Space -> O(1)
 */
