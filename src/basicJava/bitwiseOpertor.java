@@ -4,7 +4,7 @@
 //            10=1010
 //            1001 OR 1010=1011=(11)
 //
-//    bitwise AND ( isle case mai ek bhi bit zero hua hai to zero dey ga  )
+//    bitwise AND ( iske case mai ek bhi bit zero hua hai to zero dey ga  )
 //            9=1001
 //            10=1010
 //            1001 AND 1010=1000=(8)

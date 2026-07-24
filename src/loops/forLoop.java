@@ -1,12 +1,3 @@
-//    for (initialisation statement;condition;final expression){
-//              code
-//        }
-//
-//        isme sabse phle initialisation ho ga uske bdd condition check
-//        uske badd loop ke andar entry code execute then final expression ke tarf phir as usual
-//        condition check uske bdd  start ho jayega step .
-//
-
 package loops;
 import java.util.Scanner;
 public class forLoop {
@@ -20,3 +11,14 @@ public class forLoop {
     }
 }
 
+/*
+    for (initialisation statement;condition;final expression){
+              code
+        }
+
+        isme sabse phle initialisation ho ga uske bdd condition check
+        uske badd loop ke andar entry code execute then final expression ke tarf phir as usual
+        condition check uske bdd  start ho jayega step .
+
+
+ */
