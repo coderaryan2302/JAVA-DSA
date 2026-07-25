@@ -1,61 +1,94 @@
 package binarySearch;
+
 import java.util.Scanner;
+
 public class targetFindingByRecursion {
 
-    static int binarySearch(int arr [] , int target , int start , int end){
-        if (start > end){      // base case
+    // Target element ka index return karega
+    static int binarySearch(int[] arr, int target, int start, int end) {
+
+        // Base Case
+        if (start > end) {
             return -1;
         }
+
         int mid = start + (end - start) / 2;
-        if (arr[mid] == target){     // base case
+
+        if (arr[mid] == target) {
             return mid;
-        }
-        else if (arr[mid] < target){
-            return binarySearch(arr, target, mid + 1, end);     // recursive call
-        }
-        else {
-            return binarySearch(arr, target, start, mid - 1);   // recursive call
+        } else if (arr[mid] < target) {
+            return binarySearch(arr, target, mid + 1, end);
+        } else {
+            return binarySearch(arr, target, start, mid - 1);
         }
     }
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("enter array size");
-        int n = sc.nextInt();
+        System.out.print("Enter array size: ");
+        int size = sc.nextInt();
 
-        if (n <= 0) {
-            System.out.println("invalid size");
+        if (size <= 0) {
+            System.out.println("Invalid input");
             return;
         }
 
-        int[] arr = new int[n];
+        int[] arr = new int[size];
 
-        System.out.println("enter sorted array elements");
-        for (int i = 0; i < n; i++) {
+        System.out.println("Enter sorted array elements:");
+        for (int i = 0; i < size; i++) {
             arr[i] = sc.nextInt();
         }
 
-        System.out.println("enter target element");
+        System.out.print("Enter target element: ");
         int target = sc.nextInt();
 
-        int result = binarySearch(arr, target, 0, arr.length - 1);
-        if (result != -1) {
-            System.out.println("target found at index: " + result);
-        }
-        else {
-            System.out.println("target not found in the array");
+        int index = binarySearch(arr, target, 0, arr.length - 1);
+
+        if (index == -1) {
+            System.out.println("Target Not Found");
+        } else {
+            System.out.println("Target Found At Index = " + index);
         }
     }
 }
 
-
-
 /*
-binary search work on sorted array .
-code only for sorted array and ascending order array .
-code will not work for unsorted array and descending order array .
+Binary Search Using Recursion
 
-int mid = (start + end) / 2;   // this can cause integer overflow if start and end are large
-int mid = start + (end - start) / 2;   // this is a safer way to calculate mid to avoid integer overflow
+Definition
+• Binary Search ka recursive version jo sorted array me target element ka index find karta hai.
+
+Working
+• Middle element find karo.
+• Agar target mil jaye to index return karo.
+• Agar target bada ho to right half me recursive call karo.
+• Agar target chhota ho to left half me recursive call karo.
+• Jab start > end ho jaye to target present nahi hai.
+
+Key Points
+• Array ascending order me sorted hona chahiye.
+• Binary Search recursion ke through implement ki gayi hai.
+• Har recursive call search space ko aadha kar deti hai.
+• Safe mid calculation:
+  start + (end - start) / 2
+
+Edge Cases
+• Invalid input (size <= 0)
+• Single element array
+• Target first index par ho
+• Target last index par ho
+• Target present na ho
+
+Time Complexity : O(log n)
+Space Complexity : O(log n)
+
+Revision
+• Base Case → start > end
+• arr[mid] == Target → Return Index
+• arr[mid] < Target → Search Right
+• arr[mid] > Target → Search Left
+• Use: start + (end - start) / 2
 */

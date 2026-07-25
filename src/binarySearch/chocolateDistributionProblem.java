@@ -1,31 +1,39 @@
 package binarySearch;
+
 import java.util.Scanner;
+
 public class chocolateDistributionProblem {
 
+    // Check karega ki given maximum chocolates ke andar distribution possible hai ya nahi
     static boolean canDistribute(int[] arr, int children, int maxChocolate) {
+
         int childCount = 1;
         int currentChocolate = 0;
 
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > maxChocolate) {       // Agar kisi packet me hi limit se zyada chocolates hain
+
+            if (arr[i] > maxChocolate) {
                 return false;
             }
-            if (currentChocolate + arr[i] <= maxChocolate) {       // Current child ko aur chocolates de sakte hain
+
+            if (currentChocolate + arr[i] <= maxChocolate) {
                 currentChocolate += arr[i];
-            }
-            else {                  // Naye child ko chocolates deni padengi
+            } else {
                 childCount++;
                 currentChocolate = arr[i];
             }
         }
+
         return childCount <= children;
     }
 
+    // Minimum possible maximum chocolates return karega
     static int findAnswer(int[] arr, int children) {
+
         int start = 0;
         int end = 0;
 
-        for (int i = 0; i < arr.length; i++) {         // Search space find karna
+        for (int i = 0; i < arr.length; i++) {
             start = Math.max(start, arr[i]);
             end += arr[i];
         }
@@ -33,33 +41,36 @@ public class chocolateDistributionProblem {
         int answer = -1;
 
         while (start <= end) {
+
             int mid = start + (end - start) / 2;
+
             if (canDistribute(arr, children, mid)) {
                 answer = mid;
-                end = mid - 1;      // aur chhota answer dhoondo
+                end = mid - 1;
             } else {
-                start = mid + 1;    // answer bada karo
+                start = mid + 1;
             }
         }
+
         return answer;
     }
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter array size: ");
-        int n = sc.nextInt();
+        int size = sc.nextInt();
 
-        if (n <= 0){
-            System.out.println("invalid array size");
+        if (size <= 0) {
+            System.out.println("Invalid input");
             return;
         }
 
-        int[] arr = new int[n];
+        int[] arr = new int[size];
 
         System.out.println("Enter chocolates in packets:");
-
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < size; i++) {
             arr[i] = sc.nextInt();
         }
 
@@ -67,29 +78,49 @@ public class chocolateDistributionProblem {
         int children = sc.nextInt();
 
         if (children <= 0) {
-            System.out.println("Invalid number of children");
+            System.out.println("Invalid input");
             return;
         }
 
-        System.out.println("Minimum possible maximum chocolates = " + findAnswer(arr, children));
+        int answer = findAnswer(arr, children);
+
+        System.out.println("Minimum Possible Maximum Chocolates = " + answer);
     }
 }
 
-
 /*
-Pattern:
-Answer Search Binary Search
+Chocolate Distribution Problem
 
-Logic:
-Find Minimum Possible Maximum Chocolates.
+Definition
+• Chocolate packets ko children me is tarah distribute karna hota hai ki kisi bhi child ko milne wali maximum chocolates minimum ho.
 
-If Current Answer Possible,
-Try Smaller Answer.
+Working
+• Binary Search se answer search karo.
+• Har mid value ke liye check karo ki distribution possible hai ya nahi.
+• Agar possible ho to aur chhota answer try karo.
+• Warna bada answer try karo.
+• Last valid minimum value hi answer hoti hai.
 
-If Not Possible,
-Try Bigger Answer.
+Key Points
+• Binary Search answer par lagti hai.
+• Packets ko tod nahi sakte.
+• Packets ka order same rehta hai.
+• Har child ko continuous packets milte hain.
 
-Complexity:
-Time -> O(n log(sum))
-Space -> O(1)
+Edge Cases
+• Invalid input (size <= 0)
+• Invalid number of children
+• One packet
+• One child
+• Children > Number of packets
+
+Time Complexity : O(n log(sumOfPackets))
+Space Complexity : O(1)
+
+Revision
+• Search Space = Maximum Packet to Total Sum
+• Check current answer
+• Possible → Search Left
+• Not Possible → Search Right
+• Return minimum possible maximum chocolates
 */

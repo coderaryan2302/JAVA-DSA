@@ -1,82 +1,101 @@
 package binarySearch;
+
 import java.util.Scanner;
+
 public class squareRootOfNo {
 
-    static double squareRoot(int x) {
+    // Square root return karega (up to 5 decimal places)
+    static double squareRoot(int number) {
+
         int start = 0;
-        int end = x;
-        int ans = 0;
+        int end = number;
+        int answer = 0;
 
+        // Integer part using Binary Search
         while (start <= end) {
-            int mid = start + (end - start) / 2;
-            double value = (double) mid * mid;
 
-            if (value == x) {
+            int mid = start + (end - start) / 2;
+            double square = (double) mid * mid;
+
+            if (square == number) {
                 return mid;
-            }
-            else if (value < x) {
-                ans = mid;
+            } else if (square < number) {
+                answer = mid;
                 start = mid + 1;
-            }
-            else {
+            } else {
                 end = mid - 1;
             }
         }
 
-        // for finding the decimal part of the square root
-        double root = ans;
+        // Decimal part
+        double root = answer;
         double increment = 0.1;
+
         for (int i = 0; i < 5; i++) {
 
-            while (root * root <= x) {
-                root = root + increment;
+            while (root * root <= number) {
+                root += increment;
             }
-            root = root - increment;
-            increment = increment / 10;
+
+            root -= increment;
+            increment /= 10;
         }
+
         return root;
     }
 
-
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter number for square root:");
-        int x = sc.nextInt();
+        System.out.print("Enter number: ");
+        int number = sc.nextInt();
 
-        if (x < 0) {
+        if (number < 0) {
             System.out.println("Square root is not defined for negative numbers.");
             return;
         }
 
-        double result1 = squareRoot(x);
-        System.out.println("Square root of " + x + " is " + result1);
+        double root = squareRoot(number);
+
+        System.out.println("Square Root = " + root);
     }
 }
 
 /*
-this code can't find square root of float value. eg - 24.6 etc.
+Square Root of a Number
 
-/*
-Problem:
-Find Square Root Using Binary Search.
+Definition
+• Kisi number ka Square Root wo value hoti hai jiska square original number ke barabar ho.
 
-Logic:
-1. Find Integer Part Using Binary Search.
-2. Find Decimal Part Using Increment Method.
+Formula
+• √x × √x = x
 
-Limitation:
-Works Only For Integer Input.
+Working
+• Binary Search se square root ka integer part find karo.
+• Uske baad increment method se decimal part find karo.
+• Har iteration me increment 10 times chhota kar diya jata hai.
+• Yahan answer 5 decimal places tak calculate kiya gaya hai.
 
-Examples:
-10 -> 3.16227
-25 -> 5.0
+Key Points
+• Binary Search integer part ke liye use hoti hai.
+• Decimal part increment method se calculate hota hai.
+• Sirf integer input ke liye kaam karta hai.
+• Negative numbers ka real square root define nahi hota.
 
-Complexity:
-Time -> O(log n)
-Space -> O(1)
+Edge Cases
+• Negative number
+• Zero
+• Perfect square
+• Non-perfect square
+• Large numbers
 
-Revision:
-mid² < x -> Go Right
-mid² > x -> Go Left
+Time Complexity : O(log n)
+Space Complexity : O(1)
+
+Revision
+• mid² == Number → Answer Found
+• mid² < Number → Search Right
+• mid² > Number → Search Left
+• After Binary Search → Find decimal part using increment method
 */

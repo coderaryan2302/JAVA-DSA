@@ -1,88 +1,115 @@
 package binarySearch;
+
 import java.util.Scanner;
+
 public class targetFindOn2Dmatrix {
 
-    static void targetFinding(int matrix[][] , int target){
-            int r = matrix.length;
-            int c = matrix[0].length;
-            int start = 0;
-            int end = r * c - 1;
+    // Target ke sabhi indices print karega
+    static void targetFinding(int[][] matrix, int target) {
 
-            while (start <= end ){
-                int mid = start + (end - start)/2;
-                int middleElement = matrix[mid / c][mid % c];
+        int rows = matrix.length;
+        int columns = matrix[0].length;
 
-                if (middleElement == target){
-                    System.out.println("Target found at index: ");
-                    for (int i = 0; i < r; i++) {
-                        for (int j = 0; j < c; j++) {
-                            if (matrix[i][j] == target) {
-                                System.out.println("[" + i + "][" + j + "]");
-                            }
+        int start = 0;
+        int end = rows * columns - 1;
+
+        while (start <= end) {
+
+            int mid = start + (end - start) / 2;
+
+            int middleElement = matrix[mid / columns][mid % columns];
+
+            if (middleElement == target) {
+
+                System.out.println("Target Indices =");
+
+                for (int i = 0; i < rows; i++) {
+                    for (int j = 0; j < columns; j++) {
+                        if (matrix[i][j] == target) {
+                            System.out.println("[" + i + "][" + j + "]");
                         }
                     }
-                    return;
                 }
-
-                if (target < middleElement){
-                    end = mid -1;
-                }
-                else {
-                    start = mid + 1;
-                }
+                return;
             }
-        System.out.println("target not found");
+
+            if (target < middleElement) {
+                end = mid - 1;
+            } else {
+                start = mid + 1;
+            }
+        }
+
+        System.out.println("Target Not Found");
     }
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("enter row ");
-        int r = sc.nextInt();
-        System.out.println("enter column ");
-        int c = sc.nextInt();
+        System.out.print("Enter number of rows: ");
+        int rows = sc.nextInt();
 
-        if (r <= 0 || c <= 0) {
-            System.out.println("Invalid matrix size");
+        System.out.print("Enter number of columns: ");
+        int columns = sc.nextInt();
+
+        if (rows <= 0 || columns <= 0) {
+            System.out.println("Invalid input");
             return;
         }
 
-        int matrix[][] = new int[r][c];
+        int[][] matrix = new int[rows][columns];
 
-        System.out.println("enter sorted elements ");
-        for (int i = 0; i < r; i++) {
-            for (int j = 0; j < c; j++) {
+        System.out.println("Enter sorted matrix elements:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
                 matrix[i][j] = sc.nextInt();
             }
         }
 
-        System.out.println("enter target ");
+        System.out.print("Enter target element: ");
         int target = sc.nextInt();
 
-        targetFinding(matrix,target);
+        targetFinding(matrix, target);
     }
 }
 
 /*
-Works when the matrix can be viewed as a single sorted array.
-Example:
-1 2 3
-4 5 6
-7 8 9
+Target Finding in 2D Matrix
 
-Valid:
-last element of a row <= first element of next row.
+Definition
+• Sorted 2D Matrix me Binary Search ki help se target element find karta hai.
 
-Logic:
-Treat Matrix As A Virtual 1D Sorted Array.
-Row = mid / column
-Col = mid % column
+Working
+• Matrix ko virtual 1D sorted array ki tarah treat kiya jata hai.
+• Middle index se row aur column calculate kiye jate hain.
+• Agar target mil jaye to uske sabhi indices print kiye jate hain.
+• Agar target chhota ho to left half search karo.
+• Agar target bada ho to right half search karo.
 
-Important:
-Works Only When
-Last Element Of Current Row <= First Element Of Next Row
+Key Points
+• Matrix sorted hona chahiye.
+• Har row ascending order me sorted honi chahiye.
+• Current row ka last element next row ke first element se chhota ya barabar hona chahiye.
+• Row Index = mid / columns
+• Column Index = mid % columns
 
-Complexity:
-Time -> O(log(r*c))
-Space -> O(1)
+Edge Cases
+• Invalid input (rows <= 0 or columns <= 0)
+• Single row
+• Single column
+• Single element
+• Duplicate target elements
+• Target present na ho
+
+Time Complexity : O(log(rows × columns))
+Space Complexity : O(1)
+
+Revision
+• Treat Matrix as Virtual 1D Array
+• Row = mid / columns
+• Column = mid % columns
+• Target < Middle → Search Left
+• Target > Middle → Search Right
+• Target == Middle → Print All Indices
 */

@@ -1,8 +1,12 @@
 package binarySearch;
+
 import java.util.Scanner;
+
 public class childRaceTrackProblem {
 
-    static int findAnswer(int arr[], int kids) {
+    // Largest minimum distance return karega
+    static int findAnswer(int[] arr, int kids) {
+
         if (kids > arr.length) {
             return -1;
         }
@@ -12,16 +16,20 @@ public class childRaceTrackProblem {
         int answer = -1;
 
         while (start <= end) {
+
             int mid = start + (end - start) / 2;
+
             int count = 1;
-            int last = arr[0];
+            int lastPosition = arr[0];
 
             for (int i = 1; i < arr.length; i++) {
-                if (arr[i] - last >= mid) {
+
+                if (arr[i] - lastPosition >= mid) {
                     count++;
-                    last = arr[i];
+                    lastPosition = arr[i];
                 }
             }
+
             if (count >= kids) {
                 answer = mid;
                 start = mid + 1;
@@ -29,24 +37,26 @@ public class childRaceTrackProblem {
                 end = mid - 1;
             }
         }
+
         return answer;
     }
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter no. of spots (array size): ");
-        int n = sc.nextInt();
+        System.out.print("Enter number of spots: ");
+        int size = sc.nextInt();
 
-        if (n <= 0) {
-            System.out.println("Invalid size");
+        if (size <= 0) {
+            System.out.println("Invalid input");
             return;
         }
 
-        int arr[] = new int[n];
+        int[] arr = new int[size];
 
-        System.out.println("Enter spot positions in sorted way :");
-        for (int i = 0; i < n; i++) {
+        System.out.println("Enter spot positions in sorted order:");
+        for (int i = 0; i < size; i++) {
             arr[i] = sc.nextInt();
         }
 
@@ -54,34 +64,53 @@ public class childRaceTrackProblem {
         int kids = sc.nextInt();
 
         if (kids <= 0) {
-            System.out.println("Invalid number of kids");
+            System.out.println("Invalid input");
             return;
         }
 
-        int ans = findAnswer(arr, kids);
-        if (ans == -1) {
+        int answer = findAnswer(arr, kids);
+
+        if (answer == -1) {
             System.out.println("Not enough spots for all kids");
         } else {
-            System.out.println("Largest Minimum Distance = " + ans);
+            System.out.println("Largest Minimum Distance = " + answer);
         }
     }
 }
 
-
 /*
-Pattern:
-Answer Search Binary Search
+Child Race Track Problem
 
-Logic:
-If Current Distance Possible,
-Try Bigger Distance.
+Definition
+• Sorted positions me itne kids place karne hote hain ki kisi bhi do kids ke beech ki minimum distance maximum ho.
 
-If Not Possible,
-Try Smaller Distance.
+Working
+• Binary Search se answer (distance) search karo.
+• Har mid distance ke liye check karo ki sabhi kids place ho sakte hain ya nahi.
+• Agar possible ho to aur badi distance try karo.
+• Warna chhoti distance try karo.
+• Last possible distance hi answer hoti hai.
 
-Array Must Be Sorted.
+Key Points
+• Array sorted hona chahiye.
+• Binary Search answer par lagti hai, array par nahi.
+• Greedy approach se placement check hota hai.
+• Largest possible minimum distance return hoti hai.
 
-Complexity:
-Time -> O(n log(maxDistance))
-Space -> O(1)
+Edge Cases
+• Invalid input (size <= 0)
+• Invalid number of kids
+• Kids > Number of spots
+• Only one kid
+• Duplicate positions
+
+Time Complexity : O(n log(maxDistance))
+Space Complexity : O(1)
+
+Revision
+• Search Space = 1 to (Last Position - First Position)
+• Check current distance
+• Possible → Search Right
+• Not Possible → Search Left
+• Return largest minimum distance
 */

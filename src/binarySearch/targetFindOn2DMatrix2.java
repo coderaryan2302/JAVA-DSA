@@ -1,86 +1,108 @@
 package binarySearch;
+
 import java.util.Scanner;
+
 public class targetFindOn2DMatrix2 {
 
-    static void targetFinding(int matrix[][] , int target){
-        int r = matrix.length;
-        int c = matrix[0].length;
-        int i = 0;
-        int j = c-1;
+    // Target ke sabhi indices print karega
+    static void targetFinding(int[][] matrix, int target) {
 
-        while(i < r && j >= 0){
-            if (matrix[i][j] == target){
-                System.out.println("target found at index: ");
-                for (int k = 0; k < r; k++) {
-                    for (int l = 0; l < c; l++) {
-                        if (matrix[k][l] == target) {
-                        System.out.println("[" + k + "][" + l + "]");
+        int rows = matrix.length;
+        int columns = matrix[0].length;
+
+        int row = 0;
+        int column = columns - 1;
+
+        while (row < rows && column >= 0) {
+
+            if (matrix[row][column] == target) {
+
+                System.out.println("Target Indices =");
+
+                for (int i = 0; i < rows; i++) {
+                    for (int j = 0; j < columns; j++) {
+                        if (matrix[i][j] == target) {
+                            System.out.println("[" + i + "][" + j + "]");
                         }
                     }
                 }
                 return;
             }
-            if (target < matrix[i][j]){
-                j--;
-            }
-            else{
-                i++;
+
+            if (target < matrix[row][column]) {
+                column--;
+            } else {
+                row++;
             }
         }
-        System.out.println("target not found ");
+
+        System.out.println("Target Not Found");
     }
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("enter row ");
-        int r = sc.nextInt();
-        System.out.println("enter column ");
-        int c = sc.nextInt();
+        System.out.print("Enter number of rows: ");
+        int rows = sc.nextInt();
 
-        if (r <= 0 || c <= 0) {
-            System.out.println("Invalid matrix size");
+        System.out.print("Enter number of columns: ");
+        int columns = sc.nextInt();
+
+        if (rows <= 0 || columns <= 0) {
+            System.out.println("Invalid input");
             return;
         }
 
-        int matrix[][] = new int[r][c];
+        int[][] matrix = new int[rows][columns];
 
-        System.out.println("enter sorted elements ");
-        for (int i = 0; i < r; i++) {
-            for (int j = 0; j < c; j++) {
+        System.out.println("Enter sorted matrix elements:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
                 matrix[i][j] = sc.nextInt();
             }
         }
 
-        System.out.println("enter target ");
+        System.out.print("Enter target element: ");
         int target = sc.nextInt();
 
-        targetFinding(matrix,target);
+        targetFinding(matrix, target);
     }
 }
 
 /*
-Works when the matrix is sorted row-wise and column-wise.
-Example:
-1 4 7
-2 5 8
-3 6 9
+Target Finding in 2D Matrix (Row-wise and Column-wise Sorted)
 
-Valid:
-Each row is sorted from left to right.
-Each column is sorted from top to bottom.
+Definition
+• Row-wise aur Column-wise sorted matrix me target element find karta hai.
 
-Logic:
-Start From Top Right Corner.
-target < current -> Move Left
-target > current -> Move Down
-target == current -> Found
+Working
+• Search top-right corner se start hoti hai.
+• Agar current element target ke barabar ho to uske sabhi indices print karo.
+• Agar target chhota ho to left move karo.
+• Agar target bada ho to down move karo.
+• Jab matrix ke bahar pahunch jao aur target na mile to target present nahi hai.
 
-Important:
-Each Row Must Be Sorted.
-Each Column Must Be Sorted.
+Key Points
+• Har row ascending order me sorted honi chahiye.
+• Har column ascending order me sorted hona chahiye.
+• Top-right corner se search karna sabse efficient approach hai.
+• Duplicate target milne par sabhi indices print kiye jate hain.
 
-Complexity:
-Time -> O(r + c)
-Space -> O(1)
+Edge Cases
+• Invalid input (rows <= 0 or columns <= 0)
+• Single row
+• Single column
+• Single element
+• Duplicate target elements
+• Target present na ho
+
+Time Complexity : O(rows + columns)
+Space Complexity : O(1)
+
+Revision
+• Start From Top-Right Corner
+• Target < Current → Move Left
+• Target > Current → Move Down
+• Target == Current → Print All Indices
 */

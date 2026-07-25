@@ -1,88 +1,153 @@
-// ArrayList ek dynamic array hota hai jo size automatically badha ya ghata sakta hai
-// jab hum elements add ya remove karte hain.
-
 package arrayList;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class basic {
+
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
-        // ---------------- CREATE ARRAYLIST ----------------
-        // syntax for create arraylist
-        ArrayList<Integer> l1 = new ArrayList<>();
-        ArrayList<Boolean> l2 = new ArrayList<>();
-        ArrayList<Float> l3 = new ArrayList<>();
+        // Create ArrayList
+        ArrayList<Integer> list = new ArrayList<>();
+        ArrayList<Boolean> booleanList = new ArrayList<>();
+        ArrayList<Float> floatList = new ArrayList<>();
 
-        // ---------------- USER INPUT ----------------
-        System.out.print("Kitne elements add karna chahte ho : ");
-        int n = sc.nextInt();
-        System.out.println("Elements enter karo : ");
-        for (int i = 0; i < n; i++) {
-            l1.add(sc.nextInt());      // user se elements lekar arraylist me add kar rahe hain
+        // User Input
+        System.out.print("Enter number of elements: ");
+        int size = sc.nextInt();
+
+        if (size <= 0) {
+            System.out.println("Invalid input");
+            return;
         }
 
-        // ---------------- ADD NEW ELEMENT ----------------
-        l1.add(5);
-        l1.add(7);
-        l1.add(6);
-        l1.add(8);
-
-        // ---------------- GET ELEMENT ----------------
-        System.out.println(l1.get(0));   // ans = first element
-        System.out.println(l1.get(1));   // ans = second element
-
-        // ---------------- PRINT USING LOOP ----------------
-        for (int i = 0; i < l1.size(); i++) {
-            System.out.println(l1.get(i));   // ek ek element next line mai print hoga
+        System.out.println("Enter array list elements:");
+        for (int i = 0; i < size; i++) {
+            list.add(sc.nextInt());
         }
 
-        // ---------------- PRINT DIRECTLY ----------------
-        System.out.println(l1);   // pura arraylist ek sath print hoga
+        // Add Elements
+        list.add(5);
+        list.add(7);
+        list.add(6);
+        list.add(8);
 
-        // ---------------- ADD ELEMENT AT INDEX ----------------
-        l1.add(1,100);   // index 1 par 100 add ho jayega
-        System.out.println(l1);
+        // Get Elements
+        System.out.println("First Element = " + list.get(0));
+        System.out.println("Second Element = " + list.get(1));
 
-        // ---------------- MODIFY ELEMENT ----------------
-        l1.set(1,10);   // index 1 ki value 100 se 10 ho jayegi
-        System.out.println(l1);
+        // Print Using Loop
+        System.out.println("ArrayList Elements:");
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + " ");
+        }
 
-        // ---------------- REMOVE USING INDEX ----------------
-        l1.remove(1);   // index 1 ka element remove ho jayega
-        System.out.println(l1);
+        // Print Directly
+        System.out.println("\nComplete ArrayList = " + list);
 
-        // ---------------- REMOVE USING VALUE ----------------
-        System.out.println(l1.remove(Integer.valueOf(7)));   // value mili to true return karega
- //     System.out.println(l1.remove(Integer.valueOf(17)));   // value nahi mili to false return karega
-        l1.remove(Integer.valueOf(7));   // agar value exist nahi karti ho to koi error nahi dega
-        System.out.println(l1);   // ans = [5,6,8]
+        // Add Element at Index
+        list.add(1, 100);
+        System.out.println("After Adding 100 at Index 1 = " + list);
 
-        // ---------------- CHECK ELEMENT EXIST OR NOT ----------------
-        boolean ans = l1.contains(Integer.valueOf(8));   // present hua to true warna false
-        System.out.println(ans);
+        // Modify Element
+        list.set(1, 10);
+        System.out.println("After Updating Index 1 = " + list);
 
-        // ---------------- TOTAL ELEMENTS ----------------
-        System.out.println(l1.size());   // total elements count karega
+        // Remove Using Index
+        list.remove(1);
+        System.out.println("After Removing Index 1 = " + list);
 
-        // ---------------- CHECK EMPTY OR NOT ----------------
-        System.out.println(l1.isEmpty());   // list empty hui to true warna false
+        // Remove Using Value
+        System.out.println("Value 7 Removed = " + list.remove(Integer.valueOf(7)));
+        list.remove(Integer.valueOf(7));
+        System.out.println("After Removing Value 7 = " + list);
 
-        // ---------------- USER VALUE CHECK ----------------
-        System.out.print("Check karne ke liye element enter karo : ");
-        int x = sc.nextInt();
-        System.out.println(l1.contains(x));   // user wala element present hai ya nahi check karega
+        // Check Element
+        System.out.println("Contains 8 = " + list.contains(8));
 
-        // ---------------- LAST ELEMENT ----------------
-        System.out.println(l1.get(l1.size() - 1));   // last element print karega
+        // Total Elements
+        System.out.println("Size = " + list.size());
 
-        // ---------------- MIXED DATA TYPE ----------------
-        // if you don't specify class you can put anything inside l
-        ArrayList l = new ArrayList();
-        l.add("abcdef");
-        l.add(1001);
-        l.add(true);
-        System.out.println(l);   // different data types store ho jayenge
+        // Check Empty
+        System.out.println("Is Empty = " + list.isEmpty());
 
+        // User Value Check
+        System.out.print("Enter element to search: ");
+        int target = sc.nextInt();
+        System.out.println("Present = " + list.contains(target));
+
+        // Last Element
+        System.out.println("Last Element = " + list.get(list.size() - 1));
+
+        // Mixed Data Type
+        ArrayList mixedList = new ArrayList();
+
+        mixedList.add("abcdef");
+        mixedList.add(1001);
+        mixedList.add(true);
+
+        System.out.println("Mixed ArrayList = " + mixedList);
     }
 }
+
+/*
+ArrayList Basics
+
+Definition
+• ArrayList ek dynamic array hai jo automatically apna size badha ya ghata sakta hai.
+
+Working
+• ArrayList create karo.
+• add() se elements insert karo.
+• get() se element access karo.
+• set() se element update karo.
+• remove() se element delete karo.
+• contains() se element search karo.
+• size() aur isEmpty() se list ki information lo.
+
+Key Methods
+• add(value) → End me element add karta hai.
+• add(index, value) → Given index par element insert karta hai.
+• get(index) → Index ka element return karta hai.
+• set(index, value) → Element update karta hai.
+• remove(index) → Index se element remove karta hai.
+• remove(Integer.valueOf(value)) → Value remove karta hai.
+• contains(value) → Element present hai ya nahi batata hai.
+• size() → Total elements return karta hai.
+• isEmpty() → List empty hai ya nahi batata hai.
+
+Key Points
+• Dynamic size hota hai.
+• Duplicate values allow hoti hain.
+• Insertion order maintain hota hai.
+• Indexing 0 se start hoti hai.
+• Primitive data types directly store nahi hote, wrapper classes use hoti hain.
+
+Edge Cases
+• Invalid input (size <= 0)
+• Empty ArrayList
+• Duplicate elements
+• Removing unavailable value
+• Mixed data type (Raw ArrayList)
+
+Time Complexity
+• add() : O(1) Average
+• get() : O(1)
+• set() : O(1)
+• remove(index) : O(n)
+• contains() : O(n)
+• size() : O(1)
+
+Space Complexity : O(n)
+
+Revision
+• add()
+• get()
+• set()
+• remove()
+• contains()
+• size()
+• isEmpty()
+*/

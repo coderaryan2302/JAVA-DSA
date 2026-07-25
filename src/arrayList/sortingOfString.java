@@ -1,23 +1,77 @@
 package arrayList;
+
 import java.util.ArrayList;
 import java.util.Collections;
+
 public class sortingOfString {
+
     public static void main(String[] args) {
-        ArrayList<String>l1=new ArrayList<>();
-        l1.add("b");
-        l1.add("d");
-        l1.add("c");
-        l1.add("a");
-        System.out.println("orginal list" + l1);
 
-        Collections.sort(l1);
-        System.out.println("ascending order sorted list" + l1);
+        ArrayList<String> list = new ArrayList<>();
 
-        Collections.sort(l1,Collections.reverseOrder());
-        System.out.println("descending order sorted list" + l1);
+        list.add("b");
+        list.add("d");
+        list.add("c");
+        list.add("a");
+
+        System.out.println("Original List = " + list);
+
+        // Ascending Order Sorting
+        Collections.sort(list);
+
+        System.out.println("Ascending Order = " + list);
+
+        // Descending Order Sorting
+        Collections.sort(list, Collections.reverseOrder());
+
+        System.out.println("Descending Order = " + list);
     }
 }
 
-// string mai level wise letter ke acc. se sorting hoti hai ...
-// welcome or wallah 2 words hai too ..
-// W dono mai hai pr next level letter A or E hai to ans ho ga Wallah phle then Welcome
+/*
+Sorting of String (ArrayList)
+
+Definition
+• ArrayList me stored String elements ko alphabetical order me sort karta hai.
+
+Working
+• Collections.sort(list) ascending order me sort karta hai.
+• Collections.sort(list, Collections.reverseOrder()) descending order me sort karta hai.
+
+Key Points
+• Strings lexicographical (dictionary) order me sort hote hain.
+• Comparison character by character hoti hai.
+• Agar pehla character same ho to agla character compare hota hai.
+• Original ArrayList modify ho jati hai.
+
+Example
+• "Wallah" vs "Welcome"
+
+W = W (Same)
+
+Next Character
+A < E
+
+Result
+• Wallah
+• Welcome
+
+Edge Cases
+• Empty ArrayList
+• Single String
+• Duplicate Strings
+• Uppercase aur Lowercase letters
+• Different length ke Strings
+
+Time Complexity : O(n log n)
+Space Complexity : O(1)
+
+Revision
+• Collections.sort(list)
+• Ascending Order
+
+• Collections.sort(list, Collections.reverseOrder())
+• Descending Order
+
+• String Sorting = Character by Character Comparison
+*/
